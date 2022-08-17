@@ -1,12 +1,13 @@
-import { PutEventsCommand } from '@aws-sdk/client-eventbridge';
 import { promisify } from 'util';
-import { EventBridgeClient } from '@aws-sdk/client-eventbridge';
 import { mockClient } from 'aws-sdk-client-mock';
 import type { Handler } from 'aws-lambda';
 import context from 'aws-lambda-mock-context';
 import createError from 'http-errors';
 import middy from '@middy/core';
 import jsonValidator from '@middy/validator';
+import { EventBridgeClient } from '@aws-sdk/client-eventbridge';
+import { PutEventsCommand } from '@aws-sdk/client-eventbridge';
+
 
 import { Bus } from './Bus';
 import { Event } from './Event';
