@@ -1,4 +1,4 @@
-# TypeBridge
+# EventBridge Schema Validation
 
 Typescript toolbox for AWS EventBridge
 
@@ -11,17 +11,17 @@ Typescript toolbox for AWS EventBridge
 
 ## Quick install
 
-### Add typebridge dependency
+### Add eventbridge-schema-validation dependency
 
-`npm i typebridge --save`
+`npm i eventbridge-schema-validation --save`
 
-> Typebridge `v1` and above is meant to be used with [AWS SDK v3](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-eventbridge/index.html). If you want  to use Typebridge with AWS SDK v2, you should install `v0` versions of this package `npm i typebridge@^0`
+> eventbridge-schema-validation `v1` and above is meant to be used with [AWS SDK v3](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-eventbridge/index.html). If you want  to use eventbridge-schema-validation with AWS SDK v2, you should install `v0` versions of this package `npm i eventbridge-schema-validation@^0`
 
 ### Define your bus and events
 
 ```ts
 import { EventBridgeClient } from '@aws-sdk/client-eventbridge';
-import { Bus, Event } from 'typebridge';
+import { Bus, Event } from 'eventbridge-schema-validation';
 
 export const MyBus = new Bus({
   name: 'applicationBus',
@@ -96,10 +96,10 @@ Using the serverless framework with `serverless.ts` service file:
 import type { Serverless } from 'serverless/aws';
 
 const serverlessConfiguration: Serverless = {
-  service: 'typebridge-test',
+  service: 'eventbridge-schema-validation-test',
   provider: {
     name: 'aws',
-    runtime: 'nodejs12.x',
+    runtime: 'nodejs16.x',
   },
   functions: {
     hello: {
@@ -122,7 +122,7 @@ module.exports = serverlessConfiguration;
 ### Use the Event class to type input event
 
 ```ts
-import { PublishedEvent } from 'typebridge';
+import { PublishedEvent } from 'eventbridge-schema-validation';
 import { MyEvent } from './events.ts';
 
 export const handler = (event: PublishedEvent<typeof MyEvent>) => {
