@@ -1,13 +1,12 @@
 {
-  "name": "typebridge",
+  "name": "eventbridge-schema-validation",
   "repository": {
     "type": "git",
-    "url": "https://github.com/fredericbarthelet/typebridge"
+    "url": "https://github.com/hendriknielaender/eventbridge-schema-validation"
   },
   "version": "1.2.0",
   "description": "Typescript toolbox for AWS EventBridge",
   "main": "dist/index.js",
-  "author": "Frédéric Barthelet",
   "license": "MIT",
   "sideEffects": false,
   "scripts": {
